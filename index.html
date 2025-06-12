@@ -66,6 +66,77 @@
       top: 100%;
       color: #ffcad4;
       font-size: 30px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.8;
+      pointer-events: none;
+      z-index: 0;
+    }
 
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (min-width: 600px) {
+      h1 {
+        font-size: 60px;
+      }
+
+      p {
+        font-size: 30px;
+      }
+
+      button {
+        font-size: 26px;
+        padding: 15px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Iris ❤️ Vinicius</h1>
+    <p>Feliz Dia dos Namorados, amor!</p>
+    <p>Você é o melhor presente que a vida me deu. Te amo infinito ❤️</p>
+    <button onclick="alert('Te amo pra sempre, Vinicius! ❤️')">Clica aqui, amor!</button>
+  </div>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+      heart.innerHTML = "❤️";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(createHeart, 500);
+  </script>
+
+</body>
+</html>
 
 
